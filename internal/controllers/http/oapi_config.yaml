@@ -1,0 +1,5 @@
+package: http
+generate:
+  fiber-server: true
+  models: true
+output: models_and_boilerplate.gen.go

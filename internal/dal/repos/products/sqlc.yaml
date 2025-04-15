@@ -1,0 +1,21 @@
+version: 2
+sql:
+  - engine: "postgresql"
+    queries: "queries.sql"
+    schema: "../../migrations"
+    gen:
+      go:
+        package: "models"
+        out: "models"
+        sql_package: "pgx/v5"
+        overrides:
+          - db_type: "uuid"
+            go_type:
+              import: "github.com/google/uuid"
+              type: "UUID"
+          - db_type: "city"
+            go_type:
+              import: "github.com/maximmihin/as25/internal/dal/types"
+              type: "FtCity"
+          - db_type: "pg_catalog.timestamp"
+            go_type: "time.Time"
